@@ -1,5 +1,4 @@
-let gui, params, ctrls;
-let canvas, canvas2, c, c2, width, height, id, arm;
+let gui, canvas, canvas2, c, c2, width, height, id, arm;
 
 const setupGui = () => {
   gui = new dat.GUI();
