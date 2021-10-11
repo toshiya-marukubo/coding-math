@@ -6,3 +6,5 @@ Everyone should watch this YouTube channel :)
 - Kinematics
   - [Part1](./kinematics/part1)
     - [assignment](./kinematics/part1/assignment)
+  - [Part2](./kinematics/part2)
+    - [assignment](./kinematics/part2/assignment)
