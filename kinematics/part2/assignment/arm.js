@@ -54,11 +54,16 @@ class Arm {
     return Math.sin(angle) * this.length + this.y;
   }
 
-  render(c) {
+  render(c, i, t) {
+    this.scale = Math.abs(this.y / window.innerHeight);
+
+    this.y = Math.sin(this.x * 0.001 + t) * 50 * this.scale + this.y;
+
+    c.save();
     c.lineCap = 'round';
     c.lineWidth = 30 * this.scale;
 
-    if (this.parent === null) {
+    if (this.parent === null && i === 0) {
       // body
       c.beginPath();
       c.moveTo(this.x, this.y);
@@ -81,5 +86,6 @@ class Arm {
     c.moveTo(this.x, this.y);
     c.lineTo(this.getEndX(), this.getEndY());
     c.stroke();
+    c.restore();
   }
 }

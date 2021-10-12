@@ -5,8 +5,8 @@ const setupGui = () => {
   
   gui.params = {
     timeScale: 0.001,
-    number: window.innerWidth < 500 ? 50 : 100,
-    maxSize: 100,
+    number: window.innerWidth < 500 ? 50 : 50,
+    maxSize: 50,
     maxSpeed: 20, 
     reset: () => initialize()
   };
@@ -43,24 +43,38 @@ const initialize = () => {
     const x = width * Math.random();
     const y = height * Math.random() * Math.random();
 
-    const rand = Math.random();
+    const rand = Math.max(Math.random(), 0.3);
     
     const s = y / height;
     
-    const v = Math.random() * gui.params.maxSpeed * s + 3;
-    const vs = v / gui.params.maxSpeed;
+    let v = 10;
+    
+    if (Math.random() < 0.5) {
+      v *= -1;
+    }
 
-    const right = new FKSystem(x, y, v * s, vs);
-    const left  = new FKSystem(x, y, v * s, vs);
+    const vs = Math.abs(v / gui.params.maxSpeed);
+
+    const right = new FKSystem(x, y, v * s, rand * s);
+    const left  = new FKSystem(x, y, v * s, rand * s);
     
     left.phase = Math.PI;
+     
+    if (v < 0) {
+      // length, center angle, rotation angle, phase offset, scale
+      right.addArm(gui.params.maxSize * s, Math.PI / 2, Math.PI / 4, 0, s);
+      right.addArm(gui.params.maxSize * s, -0.87, 0.87, -1.5, s);
+      
+      left.addArm(gui.params.maxSize * s, Math.PI / 2, Math.PI / 4, 0, s);
+      left.addArm(gui.params.maxSize * s, -0.87, 0.87, -1.5, s);
+    } else {
+      right.addArm(gui.params.maxSize * s, Math.PI / 2, Math.PI / 4, 0, s);
+      right.addArm(gui.params.maxSize * s, 0.87, 0.87, -1.5, s);
+      
+      left.addArm(gui.params.maxSize * s, Math.PI / 2, Math.PI / 4, 0, s);
+      left.addArm(gui.params.maxSize * s, 0.87, 0.87, -1.5, s);
+    }
     
-    right.addArm(gui.params.maxSize * s, Math.PI / 2, Math.PI / 4, vs, s);
-    right.addArm(gui.params.maxSize * s, 0.87, 0.87, -1.5, s);
-    
-    left.addArm(gui.params.maxSize * s, Math.PI / 2, Math.PI / 4, vs, s);
-    left.addArm(gui.params.maxSize * s, 0.87, 0.87, -1.5, s);
-
     runners.push([right, left]);
   }
   
@@ -75,7 +89,7 @@ const draw = (t) => {
   
   for (let j = 0; j < runners.length; j++) {
     for (let i = 0; i < runners[j].length; i++) {
-      runners[j][i].render(c);
+      runners[j][i].render(c, t);
       runners[j][i].update();
       runners[j][i].updatePosition();
     }
