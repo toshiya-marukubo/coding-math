@@ -15,3 +15,8 @@ Everyone should watch this YouTube channel :)
       - [Demo on CodePen](https://codepen.io/toshiya-marukubo/pen/rNzarEP)
     - [assignment2](./kinematics/part3/assignment2)
       - [Demo on CodePen](https://codepen.io/toshiya-marukubo/pen/NWvqrwd)
+- UI Layout Math
+  - [Aspect Ratio](./ui-layout/aspect-ratio)
+  - [Box Layout](./ui-layout/box-layout)
+    - [assignment](./ui-layout/box-layout/assignment)
+      - [Demo on CodePen](https://codepen.io/toshiya-marukubo/pen/LYjVzXd)
