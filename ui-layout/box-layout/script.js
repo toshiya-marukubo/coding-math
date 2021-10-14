@@ -83,7 +83,7 @@ const hbox = (items, spacing, alignment, wrap) => {
     }
 
     if (y > height) {
-      return;
+      break;
     }
 
     c.fillRect(x, y + yPos, item.w, item.h);
