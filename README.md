@@ -53,3 +53,6 @@ Everyone should watch this YouTube channel :)
   - [verlet-integration-part-1](./physics/verlet-integration-part-1)
   - [verlet-integration-part-2](./physics/verlet-integration-part-2)
     - [Demo on CodePen](https://codepen.io/toshiya-marukubo/pen/QWqMeKV)
+- Fractals
+  - [intro-to-fractals](./fractals/intro-to-fractals)
+    - [Demo on CodePen](https://codepen.io/toshiya-marukubo/pen/YzrrYyW)
