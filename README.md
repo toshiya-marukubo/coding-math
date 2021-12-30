@@ -56,3 +56,7 @@ Everyone should watch this YouTube channel :)
 - Fractals
   - [intro-to-fractals](./fractals/intro-to-fractals)
     - [Demo on CodePen](https://codepen.io/toshiya-marukubo/pen/YzrrYyW)
+- 3D
+  - [postcards-in-space](./3d/postcards-in-space)
+  - [3d-carousel](./3d/3d-carousel)
+    - [Demo on CodePen](https://codepen.io/toshiya-marukubo/pen/XWeZPGy)
